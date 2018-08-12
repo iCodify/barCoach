@@ -1,0 +1,37 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="barCoach">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+        
+        <title>BarCoach</title>
+        <link href="barCoach.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="favicon.ico" rel="icon">
+
+        <script type="text/javascript" src="singIn.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+        <script src="script.js"></script>
+        <script type="text/javascript" src="barCoach.js" async></script>
+    </head>
+    <body>
+        <div id="content">
+            <h2>barCoach</h2>
+            
+            <div class="button-holder">
+                <button id="quickstart-sign-in-google" class="loginBtn loginBtn--google">Sign in</button>
+                <!--Firebase sign-in status: <span id="quickstart-sign-in-google-status">Unknown</span>-->
+                <button id="quickstart-sign-in-facebook" class="loginBtn loginBtn--facebook">Sign in</button>
+                <!--Firebase sign-in status: <span id="quickstart-sign-in-facebook-status">Unknown</span>-->
+                <!-- <div>Firebase auth <code>currentUser</code> object value:</div>
+                <pre><code id="quickstart-account-details">null</code></pre>
+                <div>Google OAuth Access Token:</div>
+                <pre><code id="quickstart-oauthtoken">null</code></pre>-->
+            </div>
+            <hr>  
+            <div id="add" hidden="true"><i id="add-i" class="material-icons tiny button-height">add<span style="padding: 5px">Add new cocktail</span></i></div>
+            <div id="list">Sign in to continue</div>
+        </div>
+    </body>
+</html>
