@@ -61,14 +61,14 @@ function readData() {
           });
         });
       }
-      else if(snapshot.val()==="bartender") {
+      else if(snapshot.val()==="manager") {
         fullView();
         document.getElementById("add").hidden = false;
         document.getElementById("add-i").addEventListener('click', function(){
           addListenerLogic(this.parentElement.parentElement, this.parentElement.parentElement.getAttribute("key"), this.innerHTML);
         });
       }
-      else if(snapshot.val()==="manager") {
+      else if(snapshot.val()==="user") {
         fullView();
       }
     }).catch(function(error) {
