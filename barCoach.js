@@ -76,6 +76,10 @@ function readData() {
     });
   }).catch(function(error) {
     console.error(error);
+    if(error.message.split(" ")[0] === "permission_denied") {
+      document.getElementById('list').innerHTML = "Successfully loged in, waiting for approval.";
+    }
+    console.log("vanka");
   });
 }
 
