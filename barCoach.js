@@ -39,7 +39,7 @@ function readData() {
   }).then(function (snapshot) {
     listHolder = "";
     document.getElementById('list').innerHTML = listHolder;
-    listHolder+= "<ul>";
+    listHolder+= "<ul id='ulList' hidden='true'>";
     snapshot.forEach(function(snapshotItem) {
       listMaker(snapshotItem);
     });
@@ -47,6 +47,8 @@ function readData() {
     document.getElementById("list").innerHTML = listHolder;
 
     ref.ref('privilege/').child(uID).once('value').then(function(snapshot) {
+      document.getElementById('ulList').hidden = false;
+
       if(snapshot.val()==="admin") {
         fullView();
         document.getElementById("add").hidden = false;
@@ -72,14 +74,13 @@ function readData() {
         fullView();
       }
     }).catch(function(error) {
-      console.error(error);
+      console.log(error);
     });
   }).catch(function(error) {
-    console.error(error);
+    console.log(error);
     if(error.message.split(" ")[0] === "permission_denied") {
       document.getElementById('list').innerHTML = "Successfully loged in, waiting for approval.";
     }
-    console.log("vanka");
   });
 }
 
