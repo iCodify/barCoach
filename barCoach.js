@@ -74,10 +74,10 @@ function readData() {
         fullView();
       }
     }).catch(function(error) {
-      console.log(error);
+      console.log(error.message);
     });
   }).catch(function(error) {
-    console.log(error);
+    console.log(error.message);
     if(error.message.split(" ")[0] === "permission_denied") {
       document.getElementById('list').innerHTML = "Successfully loged in, waiting for approval.";
     }

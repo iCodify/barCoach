@@ -72,7 +72,6 @@ function iterateObjects (snapshot) {
 
 function addIngredientListElement() {
   saveButtonEvent();
-  addButtonClicked = true;
   document.getElementById("ingredients").innerHTML += '<li ref="/ingredients"><span class="titles"><input placeholder="name" class="long"></span><input placeholder="ml"></li>';
   addListenerOnIngredientItems();
 }
@@ -112,7 +111,6 @@ function setDataToDatabase(location, keyElem, value) {
 
 function saveButtonEvent () {
   let listLines = document.querySelectorAll('div#list li[ref]');
-  let setDataToDatabaseCount = 0;
   listLines.forEach(function(node) {
     let keyElem, value;
     let inputFields = node.querySelectorAll("input");
@@ -123,7 +121,6 @@ function saveButtonEvent () {
       value = inputFields[0].value;
       if(verifyInputField(inputFields[0], location, "number")) {
         setDataToDatabase(location, keyElem, value);
-        setDataToDatabaseCount++;
       }
     }
     else if(inputFields.length === 2) {
@@ -131,13 +128,12 @@ function saveButtonEvent () {
       value = inputFields[1].value;
       if(verifyInputField(inputFields[0], location, "string") && verifyInputField(inputFields[1], location, "number")) {
         setDataToDatabase(location, keyElem, value);
-        setDataToDatabaseCount++;
       }
     }
   });
-  if(listLines.length===setDataToDatabaseCount){
-    window.close();
-  }
+  //if(clicked){
+  //  console.log("SaveClicked");
+  //}
 }
 
 function addListenerOnIngredientItems() {
