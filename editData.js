@@ -6,6 +6,7 @@ var listHolder = "";
 var nameFirst = "";
 var addIngredientButton =  '<div class="button-holder" id="addIngredientHolder"><button id="addIngredient" onclick="addIngredientListElement(this)" class="button-height">Add ingrediant</button></div>';
 var addButtonClicked = false;
+var availableInputField = false;
 
 dataRef.on('child_removed', readData);
 dataRef.on('child_changed', readData);
@@ -71,8 +72,11 @@ function iterateObjects (snapshot) {
 }
 
 function addIngredientListElement() {
+  addButtonClicked = true;
   saveButtonEvent();
-  document.getElementById("ingredients").innerHTML += '<li ref="/ingredients"><span class="titles"><input placeholder="name" class="long"></span><input placeholder="ml"></li>';
+  if(!availableInputField){
+    document.getElementById("ingredients").innerHTML += '<li ref="/ingredients"><span class="titles"><input placeholder="name" class="long"></span><input placeholder="ml"></li>';
+  }
   addListenerOnIngredientItems();
 }
 
@@ -124,16 +128,15 @@ function saveButtonEvent () {
       }
     }
     else if(inputFields.length === 2) {
+      availableInputField = true;
       keyElem = inputFields[0].value;
       value = inputFields[1].value;
       if(verifyInputField(inputFields[0], location, "string") && verifyInputField(inputFields[1], location, "number")) {
+        availableInputField = false;
         setDataToDatabase(location, keyElem, value);
       }
     }
   });
-  //if(clicked){
-  //  console.log("SaveClicked");
-  //}
 }
 
 function addListenerOnIngredientItems() {
@@ -151,8 +154,5 @@ function ingredientItemEvent(listItem) {
   let keyElem = listItem.querySelector("span").innerHTML.slice(0, -1);
   if(confirm('Are you sure you want to delete '+keyElem.toUpperCase()+'?')){
     ref.ref('cocktails/'+key+'/ingredients').child(keyElem).remove();
-  }
-  else{
-    console.log("ne");
   }
 }
