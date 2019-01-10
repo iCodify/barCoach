@@ -106,8 +106,25 @@ function addListenerLogic(listItem, key, action) {
 }
 
 function fullView () {
+  document.querySelectorAll('li').forEach(function(node) {
+    node.addEventListener('click', function(e) {
+      if (e.target !== this)
+        return;
+  
+      console.log( 'clicked the li' );
+      console.log(node);
+    });
+
+  });
+
+
   document.querySelectorAll('img, h3').forEach(function(node) {
+    //console.log(node);
     node.addEventListener('click', function(){
+      //console.log(this);
+      //console.log(this.parentElement);
+      //console.log(this.parentElement.getAttribute("key"));
+
       addListenerLogic(this.parentElement, this.parentElement.getAttribute("key"), "view");
     });
   });
