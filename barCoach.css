@@ -43,9 +43,8 @@
 }
 
 .icon-holder {
+    position: relative;
     background: rgb(28, 184, 65);
-    width: 50%;
-    margin-left: 25%;
 }
 
 #save, #close, #addIngredient {
