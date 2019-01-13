@@ -53,9 +53,9 @@ function readData() {
         fullView();
         document.getElementById("add").hidden = false;
         let showIcons = Array.from(document.getElementsByClassName("icon-holder"));
-        console.log(showIcons);
         showIcons.forEach(function(snapshotItem) {
           snapshotItem.hidden = false;
+          snapshotItem.style.display = "inline-block";
         });
         let itemOfList =  Array.from(document.getElementsByClassName("material-icons"));
         itemOfList.forEach(function(snapshotItem) {
@@ -86,7 +86,7 @@ function readData() {
 }
 
 function listMaker(snapshotItem) {
-  listHolder += '<li key="'+snapshotItem.key+'"><img height="100" width="100"src="'+snapshotItem.val().picture+'"/><h3>'+snapshotItem.val().name+'</h3><div class="icon-holder" hidden="true" display="inline"><i class="material-icons">delete</i><i class="material-icons">edit</i></div></li>'
+  listHolder += '<li key="'+snapshotItem.key+'"><img height="100" width="100"src="'+snapshotItem.val().picture+'"/><h3>'+snapshotItem.val().name+'</h3><div class="icon-holder" hidden="true"><i class="material-icons">delete</i><i class="material-icons">edit</i></div></li>'
 }
 
 function addListenerLogic(listItem, key, action) {
