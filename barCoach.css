@@ -42,10 +42,6 @@
     text-align: center;
 }
 
-.icon-holder {
-    background: rgb(28, 184, 65);
-}
-
 #save, #close, #addIngredient {
     border-radius: 2px;
     border: none;
