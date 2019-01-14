@@ -83,7 +83,8 @@ function addIngredientListElement() {
 
 function verifyInputField (node, location, inputType) {
   let value = node.value;
-  let regNumber =  /^(?=.)([+]?([0-9]*)(\.([0-9]+))?)$/igm;
+  //let regNumber =  /^(?=.)([+]?([0-9]*)(\.([0-9]+))?)$/igm;
+  let regNumber = /[^a-zA-Z0-9 ]/igm;
 
   if(value === "" || value === 0) {
     changeInputBackground(node, "red");
