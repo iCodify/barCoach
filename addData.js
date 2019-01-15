@@ -135,14 +135,15 @@ function ingredientItemEvent(listItem) {
 
 function verifyInputField (node, location, inputType) {
   let value = node.value;
-  let regNumber =  /^(?=.)([+]?([0-9]*)(\.([0-9]+))?)$/igm;
+  let regData = /[^a-zA-Z0-9- ,.]/g;
+  let regNumber = /^\d{1,3}(\.\d{1,2})?$/g;
 
-  if(value === "" || value === 0) {
+  console.log(value.match(regData));
+  if(value === "" || value === 0 || value.match(regData)) {
     changeInputBackground(node, "red");
     return false;
   }
   else if (location === "/ingredients" && inputType === "number" && !value.match(regNumber)) {
-    console.log("It's not a number");
     changeInputBackground(node, "red");
     return false;
   }
