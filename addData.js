@@ -189,4 +189,3 @@ function verifyData(){
     return false;
   }
 }
-

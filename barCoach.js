@@ -60,7 +60,7 @@ function readData() {
         let itemOfList =  Array.from(document.getElementsByClassName("material-icons"));
         itemOfList.forEach(function(snapshotItem) {
           snapshotItem.addEventListener('click', function(){
-            addListenerLogic(this.parentElement.parentElement, this.parentElement.parentElement.getAttribute("key"), this.innerHTML);
+            addListenerLogic(this.parentElement.parentElement.getAttribute("key"), this.innerHTML);
           });
         });
       }
@@ -68,7 +68,7 @@ function readData() {
         fullView();
         document.getElementById("add").hidden = false;
         document.getElementById("add-i").addEventListener('click', function(){
-          addListenerLogic(this.parentElement.parentElement, this.parentElement.parentElement.getAttribute("key"), this.innerHTML);
+          addListenerLogic(this.parentElement.parentElement.getAttribute("key"), this.innerHTML);
         });
       }
       else if(snapshot.val()==="user") {
@@ -89,7 +89,7 @@ function listMaker(snapshotItem) {
   listHolder += '<li key="'+snapshotItem.key+'"><img height="100" width="100"src="'+snapshotItem.val().picture+'"/><h3>'+snapshotItem.val().name+'</h3><div class="icon-holder" hidden="true"><i class="material-icons">delete</i><i class="material-icons">edit</i></div></li>'
 }
 
-function addListenerLogic(listItem, key, action) {
+function addListenerLogic(key, action) {
   if(action==="delete"){
     if(confirm("Are you sure you want to delete this?")){
       cocktRef.child(key).remove();
@@ -112,14 +112,14 @@ function fullView () {
       if (e.target !== this)
         return;
 
-      addListenerLogic(this, this.getAttribute("key"), "view");
+      addListenerLogic(this.getAttribute("key"), "view");
     });
   });
 
 
   document.querySelectorAll('img, h3').forEach(function(node) {
     node.addEventListener('click', function(){
-      addListenerLogic(this.parentElement, this.parentElement.getAttribute("key"), "view");
+      addListenerLogic(this.parentElement.getAttribute("key"), "view");
     });
   });
 }

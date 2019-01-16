@@ -80,7 +80,6 @@ function addIngredientListElement() {
   addListenerOnIngredientItems();
 }
 
-
 function verifyInputField (node, location, inputType) {
   let value = node.value;
   let regData = /[^a-zA-Z0-9- ,.]/g;
