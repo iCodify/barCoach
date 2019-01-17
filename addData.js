@@ -25,6 +25,7 @@ function readData() {
       addButtonClicked = false;
     }
   }).catch(function(error) {
+    console.log(error);
     console.error(error);
   });
 
