@@ -190,3 +190,4 @@ function verifyData(){
     return false;
   }
 }
+//updated rules on database

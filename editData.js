@@ -156,3 +156,4 @@ function ingredientItemEvent(listItem) {
     ref.ref('cocktails/'+key+'/ingredients').child(keyElem).remove();
   }
 }
+//updated rules on database
