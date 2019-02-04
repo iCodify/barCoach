@@ -42,7 +42,6 @@ function iterateObjects (snapshot) {
       }
     }
     else if(snapshotItem[0] === "timestamp" || snapshotItem[0] === "picture"){
-      //console.log(snapshotItem[1]);
     }
     else if(snapshotItem[0] === "name"){
       nameFirst = '<li ref="'+curID+'"><span class="titles">'+snapshotItem[0]+':</span><input value="'+snapshotItem[1]+'"></li>';
@@ -139,7 +138,6 @@ function verifyInputField (node, location, inputType) {
   let regData = /[^a-zA-Z0-9- ,.]/g;
   let regNumber = /^\d{1,3}(\.\d{1,2})?$/g;
 
-  console.log(value.match(regData));
   if(value === "" || value === 0 || value.match(regData)) {
     changeInputBackground(node, "red");
     return false;
@@ -190,4 +188,3 @@ function verifyData(){
     return false;
   }
 }
-//updated rules on database

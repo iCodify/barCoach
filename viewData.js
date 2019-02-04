@@ -35,7 +35,6 @@ function iterateObjects (snapshot) {
         iterateObjects(Object.entries(snapshotItem[1]));
       }
       else if(snapshotItem[0] === "timestamp" || snapshotItem[0] === "picture"){
-        //console.log(snapshotItem[1]);
       }
       else if(snapshotItem[0] === "name"){
         nameFirst = '<li ref="'+curID+'"><span class="titles">'+snapshotItem[0]+':</span><span class="view">'+snapshotItem[1]+'</span></li>';
