@@ -26,7 +26,6 @@ function readData() {
     }
   }).catch(function(error) {
     console.log(error);
-    console.error(error);
   });
 
 }
@@ -41,7 +40,7 @@ function iterateObjects (snapshot) {
         listHolder += addIngredientButton;
       }
     }
-    else if(snapshotItem[0] === "timestamp" || snapshotItem[0] === "picture"){
+    else if(snapshotItem[0] === "timestamp" || snapshotItem[0] === "picture" || snapshotItem[0] === "flavors"){
     }
     else if(snapshotItem[0] === "name"){
       nameFirst = '<li ref="'+curID+'"><span class="titles">'+snapshotItem[0]+':</span><input value="'+snapshotItem[1]+'"></li>';
@@ -66,7 +65,7 @@ function saveButtonEvent () {
     console.log("Save");
     let x = Math.floor((Math.random() * 5) + 1);
     let newKey  = ref.ref('cocktails/').push().key;
-    let cocktailData = {picture: 'https://firebasestorage.googleapis.com/v0/b/barcoach-28f49.appspot.com/o/cocktails%2Fplaceholders%2Fcocktails_icons_'+x+'.png?alt=media&token=f948ebe7-7655-4b64-b7f0-68359a1abb78', timestamp: firebase.database.ServerValue.TIMESTAMP};
+    let cocktailData = {flavors: 'TEMP', picture: 'https://firebasestorage.googleapis.com/v0/b/barcoach-28f49.appspot.com/o/cocktails%2Fplaceholders%2Fcocktails_icons_'+x+'.png?alt=media&token=f948ebe7-7655-4b64-b7f0-68359a1abb78', timestamp: firebase.database.ServerValue.TIMESTAMP};
     let ingredientsData = {};
     document.querySelectorAll('li[ref]').forEach(function(node) {
       let inputFields = node.querySelectorAll("input");

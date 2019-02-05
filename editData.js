@@ -31,7 +31,6 @@ function readData() {
     }
     addListenerOnIngredientItems();
   }).catch(function(error) {
-    //console.error(error);
     console.log(error);
   });
 
@@ -51,7 +50,7 @@ function iterateObjects (snapshot) {
           listHolder += addIngredientButton;
         }
       }
-      else if(snapshotItem[0] === "timestamp" || snapshotItem[0] === "picture"){
+      else if(snapshotItem[0] === "timestamp" || snapshotItem[0] === "picture" || snapshotItem[0] === "flavors"){
       }
       else if(snapshotItem[0] === "name"){
         nameFirst = '<li ref="'+curID+'"><span class="titles">'+snapshotItem[0]+':</span><input value="'+snapshotItem[1]+'"></li>';
@@ -109,7 +108,11 @@ function changeInputBackground(node, color) {
 }
 
 function setDataToDatabase(location, keyElem, value) {
-  ref.ref('cocktails/'+key+location+'/'+keyElem.toLowerCase()).set(value.toUpperCase());
+  ref.ref('cocktails/'+key+location+'/'+keyElem.toLowerCase()).set(value.toUpperCase())
+    .catch(function(error)
+    {
+      console.log(error);
+    });
 }
 
 function saveButtonEvent () {
